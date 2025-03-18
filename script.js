@@ -1,55 +1,3 @@
-/* // 获取页面元素
-const chatBox = document.getElementById('chatBox');
-const userInput = document.getElementById('userInput');
-
-// 添加消息到聊天框
-function addMessage(message, isBot = false) {
-    const msgDiv = document.createElement('div');
-    msgDiv.className = isBot ? 'bot-message' : 'user-message';
-    msgDiv.textContent = (isBot ? '小园丁: ' : '你: ') + message;
-    chatBox.appendChild(msgDiv);
-    chatBox.scrollTop = chatBox.scrollHeight; // 自动滚动到底部
-}
-
-// 发送消息函数
-async function sendMessage() {
-    const message = userInput.value.trim();
-    if (!message) return;
-    
-    addMessage(message);
-    userInput.value = '';
-    
-    try {
-        // 发送POST请求到后端
-        const response = await fetch('http://localhost:3000/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message })
-        });
-        
-        const data = await response.json();
-        addMessage(data.reply, true);
-    } catch (error) {
-        addMessage('出错了，请稍后再试', true);
-    }
-}
-
-
-// 在 app.js 的键盘事件监听中补充
-userInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        e.preventDefault(); // 新增：显式阻止默认行为
-        sendMessage();
-    }
-});
-
-
-// 修改事件绑定方式
-document.getElementById('sendButton').addEventListener('click', function(e) {
-    e.preventDefault();
-    sendMessage();
-  });
- */
 
   // 修改后的script.js
 const chatBox = document.getElementById('chatBox');
@@ -78,7 +26,7 @@ async function sendMessage() {
     userInput.value = '';
 
     // 添加加载中消息
-    const loadingMsg = addMessage('服务器正在处理中...', true);
+    const loadingMsg = addMessage('我先想想，等一下...', true);
     loadingMsg.classList.add('loading-message');
 
     try {
