@@ -30,7 +30,7 @@ async function sendMessage() {
     loadingMsg.classList.add('loading-message');
 
     try {
-        const response = await fetch('https://0de7-2408-8207-6c83-1690-117-f819-efe-c225.ngrok-free.app/http://localhost:3000/chat', {
+        const response = await fetch('https://b11a-2408-8207-6c83-1690-98c5-eb23-7552-73bf.ngrok-free.app/http://localhost:3000/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message })
